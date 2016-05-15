@@ -22,8 +22,7 @@ app.use(function (req, res, next) {
     var origin;
     if(req.headers.host === 'cenito.2016.angularattack.io'){
         origin = 'https://cenito.2016.angularattack.io';
-    }
-    if(req.headers.host === 'localhost:3040') {
+    } else {
         origin = 'http://localhost:3000';
     }
     if(origin) {
