@@ -4,6 +4,9 @@ var SMHI = require("smhi-node"),
 
 module.exports = function(req, res) {
 
+    latitude = req.query['lat'] || latitude;
+    longitude = req.query['lng'] || longitude;
+    console.log('Got', latitude, longitude);
     SMHI.getForecastForLatAndLong(latitude, longitude).then(
         function(response) {
             var forecasts = response.getForecasts();
@@ -22,6 +25,8 @@ module.exports = function(req, res) {
         },
         function(error) {
             console.log("I didn't manage to find out, sorry.", error);
+            res.status(404);
+            res.end();
 
         }
     );
