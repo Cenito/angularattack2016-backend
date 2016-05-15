@@ -20,7 +20,7 @@ app.use(methodOverride('_method'));
 app.use(function (req, res, next) {
 
     var origin;
-    if(req.headers.referer.indexOf('cenito.2016.angularattack.io') > -1){
+    if(req.headers.referer && req.headers.referer.indexOf('cenito.2016.angularattack.io') > -1){
         origin = 'https://cenito.2016.angularattack.io';
     } else {
         origin = 'http://localhost:3000';
